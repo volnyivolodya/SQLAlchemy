@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Книги и жанры</h2>
+  <ul>
+    {%- for book in books %}
+        <li> Название: {{ book.title }} </li>
+        <li>
+          <a href="{{ url_for('books_by_genre', genre_id=book.genre.id) }}">Жанр: {{ book.genre.title }}</a>
+        </li>
+      <hr>
+    {%- endfor %}
+  </ul>
+{% endblock %}
+
